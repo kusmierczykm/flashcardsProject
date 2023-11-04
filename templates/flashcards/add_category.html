@@ -5,10 +5,14 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Dodaj kategorię</title>
 </head>
 <body>
-    <h1>STRONA TESTOWA</h1>
-    <p><a href="{% url 'flashcards:show_all_categories' %}">Wyświetl wszystkie kategorie</a></p>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Dodaj</button>
+    </form>
+    <a href="{% url 'flashcards:index' %}">Powrót</a>
 </body>
 </html>

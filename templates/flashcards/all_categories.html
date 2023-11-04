@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista kategorii</title>
+</head>
+<body>
+    {% if categories|length == 0 %}
+        <h2>PUSTO</h2>
+    {% else %}
+        {% for category in categories %}
+        <p>- {{ category.name }}</p>
+        <a href="{% url 'flashcards:edit_category' category.id 'edit' %}">Edytuj</a>
+        <a href="{% url 'flashcards:edit_category' category.id 'delete' %}">Usuń</a>
+        {% endfor %}
+    {% endif %}
+    <p>
+        <a href="{% url 'flashcards:index' %}">Powrót</a>
+        <a href="{% url 'flashcards:add_category' %}">Dodaj kategorie</a>
+    </p>
+</body>
+</html>
