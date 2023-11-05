@@ -8,9 +8,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>STRONA TESTOWA</h1>
-    <p><a href="{% url 'flashcards:show_all_categories' %}">Wyświetl wszystkie kategorie</a></p>
-    <p><a href="{% url 'flashcards:show_all_words' %}">Wyświetl wszystkie słówka</a></p>
-    <p><a href="{% url 'flashcards:prepare_test' %}">Test</a></p>
+    <h2>{{ count }}</h2>
+    <h2>{{ category }}</h2>
+    {% for dat in data %}
+    <p>{{ dat.eng_word }}</p>
+    {% endfor %}
+    <a href="{% url 'flashcards:index' %}">Powrót</a>
 </body>
 </html>

@@ -19,7 +19,7 @@ class Flashcard(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.eng_word
+        return f'{self.eng_word} - {self.pl_word}'
 
     class Meta:
         verbose_name_plural = 'flashcards'
